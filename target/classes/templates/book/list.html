@@ -23,6 +23,7 @@
                     <th>Title</th>
                     <th>ISBN</th>
                     <th>Author</th>
+                    <th>Available Copies</th>
                     <th>Actions</th>
                 </tr>
             </thead>
@@ -32,8 +33,15 @@
                     <td th:text="${book.title}"></td>
                     <td th:text="${book.isbn}"></td>
                     <td th:text="${book.author.name}"></td>
+                    <td th:text="${book.availableCopies}"></td>
                     <td>
                         <a th:href="@{/books/edit/{id}(id=${book.id})}" class="button">Edit</a>
+                        <form th:action="@{/books/{id}/borrow(id=${book.id})}" method="post" style="display:inline;">
+                            <button type="submit" class="button">Borrow</button>
+                        </form>
+                        <form th:action="@{/books/{id}/return(id=${book.id})}" method="post" style="display:inline;">
+                            <button type="submit" class="button">Return</button>
+                        </form>
                     </td>
                 </tr>
             </tbody>

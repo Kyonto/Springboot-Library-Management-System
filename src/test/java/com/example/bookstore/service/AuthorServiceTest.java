@@ -38,17 +38,14 @@ public class AuthorServiceTest {
 
     @Test
     void whenGetAllAuthors_thenReturnAuthorList() {
-        // given
         Author author2 = new Author();
         author2.setName("Jane Doe");
         List<Author> authors = Arrays.asList(author, author2);
 
         when(authorRepository.findAll()).thenReturn(authors);
 
-        // when
         List<Author> result = authorService.getAllAuthors();
 
-        // then
         assertThat(result).hasSize(2);
         assertThat(result).extracting(Author::getName).containsExactlyInAnyOrder("John Doe", "Jane Doe");
     }

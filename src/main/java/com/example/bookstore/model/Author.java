@@ -26,7 +26,6 @@ public class Author {
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Book> books = new ArrayList<>();
 
-    // Constructors
     public Author() {}
 
     public Author(String name, String email) {
@@ -40,7 +39,6 @@ public class Author {
         this.email = email;
     }
 
-    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -73,7 +71,6 @@ public class Author {
         this.books = books;
     }
 
-    // Helper methods
     public void addBook(Book book) {
         books.add(book);
         book.setAuthor(this);
@@ -83,6 +80,4 @@ public class Author {
         books.remove(book);
         book.setAuthor(null);
     }
-
-    // equals, hashCode, and toString methods
 }

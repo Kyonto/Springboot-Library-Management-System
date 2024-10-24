@@ -3,4 +3,3 @@ com\example\bookstore\repository\AuthorRepositoryTest.class
 com\example\bookstore\service\AuthorServiceTest.class
 com\example\bookstore\controller\AuthorControllerTest.class
 com\example\bookstore\service\BookServiceTest.class
-com\example\bookstore\controller\BookControllerTest.class

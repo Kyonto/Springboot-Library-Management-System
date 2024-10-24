@@ -19,13 +19,11 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Create and save 10 authors
         for (int i = 1; i <= 10; i++) {
             Author author = new Author("Author " + i, "author" + i + "@example.com");
             authorRepository.save(author);
 
-            // Create and save a book for each author
-            Book book = new Book("Book " + i, "ISBN-" + i, author);
+            Book book = new Book("Book " + i, "ISBN-" + i, author, 5); // Set initial available copies
             bookRepository.save(book);
         }
     }

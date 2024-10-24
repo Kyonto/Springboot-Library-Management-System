@@ -43,10 +43,10 @@ class BookControllerTest {
 
     @Test
     void whenGetBooks_thenReturnBooksList() throws Exception {
-        Author author = new Author(1L, "John Doe", "john@example.com");
+        Author author = new Author("John Doe", "john@example.com");
         List<Book> books = Arrays.asList(
-            new Book(1L, "Book 1", "1234567890", author),
-            new Book(2L, "Book 2", "0987654321", author)
+            new Book("Book 1", "1234567890", author, 5),
+            new Book("Book 2", "0987654321", author, 5)
         );
         when(bookService.getAllBooks()).thenReturn(books);
 
@@ -60,8 +60,8 @@ class BookControllerTest {
     @Test
     void whenGetNewBookForm_thenReturnBookForm() throws Exception {
         List<Author> authors = Arrays.asList(
-            new Author(1L, "John Doe", "john@example.com"),
-            new Author(2L, "Jane Doe", "jane@example.com")
+            new Author("John Doe", "john@example.com"),
+            new Author("Jane Doe", "jane@example.com")
         );
         when(authorService.getAllAuthors()).thenReturn(authors);
 
@@ -75,8 +75,8 @@ class BookControllerTest {
 
     @Test
     void whenCreateBook_thenRedirectToBooksList() throws Exception {
-        Author author = new Author(1L, "John Doe", "john@example.com");
-        Book book = new Book(null, "New Book", "1234567890", author);
+        Author author = new Author("John Doe", "john@example.com");
+        Book book = new Book("New Book", "1234567890", author, 5);
         when(bookService.saveBook(any(Book.class))).thenReturn(book);
 
         mockMvc.perform(post("/books")
@@ -91,8 +91,8 @@ class BookControllerTest {
 
     @Test
     void whenGetEditForm_thenReturnBookForm() throws Exception {
-        Author author = new Author(1L, "John Doe", "john@example.com");
-        Book book = new Book(1L, "Book 1", "1234567890", author);
+        Author author = new Author("John Doe", "john@example.com");
+        Book book = new Book("Book 1", "1234567890", author, 5);
         List<Author> authors = Arrays.asList(author);
 
         when(bookService.getBookById(1L)).thenReturn(book);
@@ -109,8 +109,8 @@ class BookControllerTest {
 
     @Test
     void whenUpdateBook_thenRedirectToBooksList() throws Exception {
-        Author author = new Author(1L, "John Doe", "john@example.com");
-        Book book = new Book(1L, "Updated Book", "0987654321", author);
+        Author author = new Author("John Doe", "john@example.com");
+        Book book = new Book("Updated Book", "0987654321", author, 5);
         when(bookService.updateBook(any(Book.class))).thenReturn(book);
 
         mockMvc.perform(post("/books/update")

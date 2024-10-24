@@ -41,6 +41,7 @@ class BookServiceTest {
         book.setTitle("Test Book");
         book.setIsbn("1234567890");
         book.setAuthor(author);
+        book.setAvailableCopies(5);
     }
 
     @Test
@@ -48,6 +49,7 @@ class BookServiceTest {
         Book book2 = new Book();
         book2.setTitle("Book 2");
         book2.setAuthor(author);
+        book2.setAvailableCopies(5);
 
         List<Book> books = Arrays.asList(book, book2);
 

@@ -23,23 +23,19 @@ public class Book {
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
 
+    @Column(nullable = false)
+    private int availableCopies;
+
     // Constructors
     public Book() {}
 
-    public Book(String title, String isbn, Author author) {
+    public Book(String title, String isbn, Author author, int availableCopies) {
         this.title = title;
         this.isbn = isbn;
         this.author = author;
+        this.availableCopies = availableCopies;
     }
 
-    public Book(Long id, String title, String isbn, Author author) {
-        this.id = id;
-        this.title = title;
-        this.isbn = isbn;
-        this.author = author;
-    }
-
-    // Getters and setters
     public Long getId() {
         return id;
     }
@@ -70,6 +66,14 @@ public class Book {
 
     public void setAuthor(Author author) {
         this.author = author;
+    }
+
+    public int getAvailableCopies() {
+        return availableCopies;
+    }
+
+    public void setAvailableCopies(int availableCopies) {
+        this.availableCopies = availableCopies;
     }
 
     // equals, hashCode, and toString methods
