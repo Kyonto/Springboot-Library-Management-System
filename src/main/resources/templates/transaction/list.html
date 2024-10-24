@@ -2,22 +2,24 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Transaction List</title>
+    <title>Transaction Ledger</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Transaction List</h1>
+    <header class="bg-primary text-white text-center py-3">
+        <h1>Transaction Ledger</h1>
         <nav>
-            <ul>
-                <li><a th:href="@{/}">Home</a></li>
-                <li><a th:href="@{/books}">Books</a></li>
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a class="nav-link text-white" th:href="@{/}">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" th:href="@{/books}">Books</a></li>
+                <li class="nav-item"><a class="nav-link text-white" th:href="@{/authors}">Authors</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-        <table>
-            <thead>
+    <main class="container mt-4">
+        <table class="table table-striped">
+            <thead class="thead-dark">
                 <tr>
                     <th>ID</th>
                     <th>Book Title</th>
@@ -35,8 +37,23 @@
             </tbody>
         </table>
     </main>
-    <footer>
-        <p>&copy; 2024 Bookstore. All rights reserved.</p>
+    <footer class="bg-dark text-white text-center py-3 mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <p>&copy; 2024 Bookstore</p>
+                </div>
+                <div class="col-md-4">
+                    <p>All rights reserved.</p>
+                </div>
+                <div class="col-md-4">
+                    <p>Contact: info@bookstore.com</p>
+                </div>
+            </div>
+        </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
