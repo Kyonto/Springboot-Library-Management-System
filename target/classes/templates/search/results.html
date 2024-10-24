@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Search Results</h1>
+        <nav>
+            <ul>
+                <li><a th:href="@{/authors}">Manage Authors</a></li>
+                <li><a th:href="@{/books}">Manage Books</a></li>
+                <li><a th:href="@{/}">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Books</h2>
+            <ul>
+                <li th:each="book : ${books}" th:text="${book.title}"></li>
+            </ul>
+        </section>
+        <section>
+            <h2>Authors</h2>
+            <ul>
+                <li th:each="author : ${authors}" th:text="${author.name}"></li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Bookstore. All rights reserved.</p>
+    </footer>
+</body>
+</html>

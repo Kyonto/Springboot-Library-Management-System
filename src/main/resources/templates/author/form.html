@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${author.id == null ? 'Create' : 'Edit'} + ' Author'"></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1 th:text="${author.id == null ? 'Create' : 'Edit'} + ' Author'"></h1>
+        <nav>
+            <ul>
+                <li><a th:href="@{/authors}">Back to Authors List</a></li>
+                <li><a th:href="@{/}">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form th:action="${author.id == null ? '/authors' : '/authors/update'}" th:object="${author}" method="post">
+            <input type="hidden" th:field="*{id}"/>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" th:field="*{name}" required/>
+                <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" th:field="*{email}" required/>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+            </div>
+            <button type="submit" class="button">Save</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2024 Bookstore. All rights reserved.</p>
+    </footer>
+</body>
+</html>

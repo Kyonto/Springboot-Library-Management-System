@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Bookstore</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Bookstore</h1>
+        <nav>
+            <ul>
+                <li><a th:href="@{/authors}">Manage Authors</a></li>
+                <li><a th:href="@{/books}">Manage Books</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Search</h2>
+            <form action="/search" method="get">
+                <input type="text" name="query" placeholder="Search for books or authors" required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Bookstore. All rights reserved.</p>
+    </footer>
+</body>
+</html>
